@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="chapter">
+    <div class="contents">
+        <h3 class="mokuji">{{ chapter.chapter_name }}</h3>
+        {% for content in contents_list %}
+        <div class="chapters-nm">
+            <a href="{% url 'myapp:content' content.pk %}"><h4 class="contents-name">{{ content.content_name }}</h4></a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

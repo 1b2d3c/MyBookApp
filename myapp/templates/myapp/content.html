@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="chapter">
+    <div class="content">
+        <h3 class="content-name">{{ content.content_name }}</h3>
+        <div class="page">
+            {% for page in pages_list %}
+                <h4 class="page-name">{{ page.page_name }}</h4>
+                <p class="page-text">{{ page.text | linebreaksbr }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

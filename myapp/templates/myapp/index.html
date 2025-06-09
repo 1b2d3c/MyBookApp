@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if searchForm %}
+<div class="booklist">
+    <div id="sort-a" class="sort" style="touch-action: cross-slide-y;">
+        <form name="a" action="{% url 'myapp:index' %}" method="get">
+            <div>
+                <h5 class="search-option">KEYWORD</h5>
+                <a class="searchform">{{ searchForm }}</a>
+                <div class="search-btn">
+                    <input class="search" type="submit" value="検索">
+                    <a class="search-clear" href="{% url 'myapp:index' %}">クリア</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="books">
+        {% for item in object_list %}
+        <div class="books-img">
+            <a href="{% url 'myapp:book' item.pk %}">
+                <img src="{{ item.thumbnail.url }}">
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}

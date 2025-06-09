@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="mypage">
+    <h1 class="mypage-title">MYPAGE</h1>
+    <div class="mypage-inner">
+        <p class="mypage-item">ユーザー名：{{ object.username }}</p>
+        <p class="mypage-item">email：{{ object.email }}</p>
+        <p class="mypage-item">生年月日：{{ object.birthday | date:"Y年n月j日" }}</p>
+        <p class="mypage-item">登録日：{{ object.date_joined | date:"Y年n月j日" }}</p>
+    </div> 
+</div>
+{% endblock %}

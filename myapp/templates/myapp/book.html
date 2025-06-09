@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="book">
+    <div class="book-inf">
+        <img class="book-img" src="{{ book.thumbnail.url }}">
+        <div class="book-info">
+            <h2 class="book-title">{{ book.title }}</h2>
+            <h6 class="book-category">カテゴリ：{{ book.category }}</h6>
+            <p class="book-about">{{ book.about | linebreaksbr }}</p>
+        </div>
+    </div>
+    <div class="chapters">
+        <h3 class="mokuji">Chapters</h3>
+        {% for chapter in chapters_list %}
+        <div class="chapters-nm">
+            <a href="{% url 'myapp:chapter' chapter.pk %}"><h4 class="chapters-name">{{ chapter.chapter_name }}</h4></a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
